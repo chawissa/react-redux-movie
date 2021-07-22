@@ -9,7 +9,7 @@ const initState = {
 const moviesReducer = (state = initState, action) => {
   switch (action.type) {
     case "FETCH_MOVIES":
-      return { ...state };
+      return { ...state, popular: action.payload.popular };
     default:
       return { ...state };
   }
