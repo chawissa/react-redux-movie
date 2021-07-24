@@ -1,16 +1,12 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { loadMovies } from "./actions/moviesAction";
+import React from "react";
+// COMPONENTS AND PAGES
+import Home from "./pages/Home";
 
 function App() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(loadMovies());
-  }, []);
-
   return (
     <div className="App">
       <h1>Hello Movie</h1>
+      <Home />
     </div>
   );
 }
