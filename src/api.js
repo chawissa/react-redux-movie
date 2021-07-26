@@ -43,3 +43,6 @@ export const upcomingMoviesURL = () => `${base_url}${upcoming_movies}`;
 // MOVIE DETAILS
 export const movieDetailsURL = (movie_id) =>
   `${base_url}${movie_id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
+
+export const movieCreditsURL = (movie_id) =>
+  `${base_url}${movie_id}/credits?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;

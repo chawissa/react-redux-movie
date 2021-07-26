@@ -3,10 +3,19 @@ import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { img_300, unavailable } from "../config/config";
+// REDUX
+import { useDispatch } from "react-redux";
+import { loadDetail } from "../actions/detailAction";
 
-const Movie = ({ name, released, poster }) => {
+const Movie = ({ name, released, poster, id }) => {
+  // LOAD DETAIL
+  const dispatch = useDispatch();
+  const handleLoadDetail = () => {
+    dispatch(loadDetail(id));
+  };
+
   return (
-    <StyledMovie>
+    <StyledMovie onClick={handleLoadDetail}>
       <img alt={name} src={poster ? `${img_300}/${poster}` : unavailable} />
       <h3>{name}</h3>
       <p>{released}</p>
