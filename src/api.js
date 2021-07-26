@@ -39,3 +39,7 @@ const upcoming_movies = `upcoming?api_key=${process.env.REACT_APP_API_KEY}&langu
 export const popularMoviesURL = () => `${base_url}${popular_movies}`;
 export const nowShowingMoviesURL = () => `${base_url}${nowShowing_movies}`;
 export const upcomingMoviesURL = () => `${base_url}${upcoming_movies}`;
+
+// MOVIE DETAILS
+export const movieDetailsURL = (movie_id) =>
+  `${base_url}${movie_id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
