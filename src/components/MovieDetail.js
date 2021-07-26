@@ -7,9 +7,25 @@ import { useSelector } from "react-redux";
 
 const MovieDetail = () => {
   // DATA
-  const detail = useSelector((state) => state.detail);
+  const { movie, credits } = useSelector((state) => state.detail);
 
-  return <div></div>;
+  return (
+    <div className="card-shadow">
+      <div className="detail">
+        <div className="rating">
+          <h3>{movie.title}</h3>
+          <p>Rating: {movie.vote_average}</p>
+        </div>
+
+        <div className="info">
+          <div className="genres">
+            {movie.genres &&
+              movie.genres.map((genre) => <h3 key={genre.id}>{genre.name}</h3>)}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default MovieDetail;

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loadMovies } from "../actions/moviesAction";
 // COMPONENTS
 import Movie from "../components/Movie";
+import MovieDetail from "../components/MovieDetail";
 // STYLING AND ANIMATION
 import styled from "styled-components";
 import { motion } from "framer-motion";
@@ -21,6 +22,7 @@ const Home = () => {
 
   return (
     <MovieList>
+      <MovieDetail />
       <h2>Now Showing</h2>
       <Movies>
         {nowShowing.map((movie) => (
