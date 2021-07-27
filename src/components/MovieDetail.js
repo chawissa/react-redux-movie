@@ -13,7 +13,10 @@ const MovieDetail = () => {
     <div className="card-shadow">
       <div className="detail">
         <div className="rating">
-          <h3>{movie.title}</h3>
+          <h3>
+            {movie.title}({(movie.release_date || "-----").substring(0, 4)})
+          </h3>
+          {movie.tagline && <i className="tagline">{movie.tagline}</i>}
           <p>Rating: {movie.vote_average}</p>
         </div>
 
