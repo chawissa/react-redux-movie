@@ -46,3 +46,6 @@ export const movieDetailsURL = (movie_id) =>
 
 export const movieCreditsURL = (movie_id) =>
   `${base_url}${movie_id}/credits?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
+
+export const movieVideoURL = (movie_id) =>
+  `${base_url}${movie_id}/videos?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;

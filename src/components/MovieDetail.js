@@ -11,8 +11,8 @@ const MovieDetail = () => {
   const { movie, credits } = useSelector((state) => state.detail);
 
   return (
-    <div className="card-shadow">
-      <div className="detail">
+    <CardShadow>
+      <Detail>
         <div className="stats">
           <div className="rating">
             <h3>
@@ -24,14 +24,14 @@ const MovieDetail = () => {
 
           <div className="info">
             <div className="genres">
-              {movie.genres &&
-                movie.genres.map((genre) => (
-                  <h3 key={genre.id}>{genre.name}</h3>
-                ))}
+              {movie.genres.map((genre) => (
+                <h3 key={genre.id}>{genre.name}</h3>
+              ))}
               {movie.runtime} minutes
             </div>
           </div>
         </div>
+
         <div className="media">
           <img
             src={
@@ -42,26 +42,47 @@ const MovieDetail = () => {
             alt={movie.name}
           />
         </div>
-        {movie.tagline && <i className="tagline">{movie.tagline}</i>}
+        {/* {movie.tagline && <i className="tagline">{movie.tagline}</i>} */}
+        <i className="tagline">{movie.tagline}</i>
         <div className="description">
           <p>{movie.overview}</p>
         </div>
         <div className="carousel">
-          {credits.cast &&
-            credits.cast.map((cast) => (
-              <img
-                src={
-                  cast.profile_path
-                    ? `${img_300}/${cast.profile_path}`
-                    : noPicture
-                }
-                alt={cast?.name}
-              />
-            ))}
+          {credits.cast.map((cast) => (
+            <img
+              src={
+                cast.profile_path
+                  ? `${img_300}/${cast.profile_path}`
+                  : noPicture
+              }
+              key={cast.id}
+              alt={cast?.name}
+            />
+          ))}
         </div>
-      </div>
-    </div>
+      </Detail>
+    </CardShadow>
   );
 };
+
+const CardShadow = styled(motion.div)`
+  width: 100%;
+  min-height: 100vh;
+  overflow-y: scroll;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+`;
+
+const Detail = styled(motion.div)`
+  width: 80%;
+  border-radius: 1rem;
+  padding: 2rem 20rem;
+  background: white;
+  position: absolute;
+  left: 10%;
+  color: black;
+`;
 
 export default MovieDetail;
