@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { img_185, noPicture } from "../config/config";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import style from "styled-components";
+import styled from "styled-components";
+import { LeftArrowAlt, RightArrowAlt } from "@styled-icons/boxicons-regular";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 
@@ -10,6 +11,7 @@ const handleDragStart = (e) => e.preventDefault();
 
 const Carousel = () => {
   const { credits } = useSelector((state) => state.detail);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const items = credits.cast.map((cast) => (
     <div className="carouselItem">
@@ -23,19 +25,19 @@ const Carousel = () => {
     </div>
   ));
 
-  //   const slidePrev = () => setActiveIndex(activeIndex - 1);
-  //   const slideNext = () => setActiveIndex(activeIndex + 1);
-  //   const syncActiveIndex = ({ item }) => setActiveIndex(item);
+  const slidePrev = () => setActiveIndex(activeIndex - 1);
+  const slideNext = () => setActiveIndex(activeIndex + 1);
+  const syncActiveIndex = ({ item }) => setActiveIndex(item);
 
   const responsive = {
     0: {
+      items: 1,
+    },
+    800: {
       items: 3,
     },
-    512: {
-      items: 5,
-    },
     1024: {
-      items: 7,
+      items: 5,
     },
   };
 
@@ -44,10 +46,11 @@ const Carousel = () => {
       responsive={responsive}
       mouseTracking
       items={items}
+      //   autoPlay={true}
       disableDotsControls
       disableButtonsControls
-      //   activeIndex={activeIndex}
-      //   onSlideChange={syncActiveIndex}
+      activeIndex={activeIndex}
+      onSlideChange={syncActiveIndex}
     />,
     <div
       className="b-refs-buttons"
@@ -57,11 +60,11 @@ const Carousel = () => {
         margin: "20px",
       }}
     >
-      {/* <ArrowBackIcon
+      <LeftArrowAlt
         onClick={slidePrev}
         style={{ marginRight: "15px", cursor: "pointer" }}
       />
-      <ArrowForwardIcon onClick={slideNext} style={{ cursor: "pointer" }} /> */}
+      <RightArrowAlt onClick={slideNext} style={{ cursor: "pointer" }} />
     </div>,
   ];
 };

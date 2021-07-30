@@ -1,5 +1,5 @@
 import React from "react";
-import { img_300, img_500, unavailable, noPicture } from "../config/config";
+import { img_300, img_400, unavailable, noPicture } from "../config/config";
 import Carousel from "./Carousel";
 // STYLING AND ANIMATION
 import styled from "styled-components";
@@ -14,6 +14,17 @@ const MovieDetail = () => {
   return (
     <CardShadow>
       <Detail>
+        <div className="media">
+          <img
+            src={
+              movie.backdrop_path
+                ? `${img_400}/${movie.poster_path}`
+                : unavailable
+            }
+            alt={movie.name}
+          />
+        </div>
+
         <div class="stats">
           <div className="rating">
             <h3>
@@ -33,34 +44,11 @@ const MovieDetail = () => {
           </div>
         </div>
 
-        <div className="media">
-          <img
-            src={
-              movie.backdrop_path
-                ? `${img_500}/${movie.poster_path}`
-                : unavailable
-            }
-            alt={movie.name}
-          />
-        </div>
         {/* {movie.tagline && <i className="tagline">{movie.tagline}</i>} */}
         <i className="tagline">{movie.tagline}</i>
         <div className="description">
           <p>{movie.overview}</p>
         </div>
-        {/* <div className="carousel">
-          {credits.cast.map((cast) => (
-            <img
-              src={
-                cast.profile_path
-                  ? `${img_300}/${cast.profile_path}`
-                  : noPicture
-              }
-              key={cast.id}
-              alt={cast?.name}
-            />
-          ))}
-        </div> */}
         <Carousel />
       </Detail>
     </CardShadow>
