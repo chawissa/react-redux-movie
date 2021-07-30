@@ -1,5 +1,6 @@
 import React from "react";
 import { img_300, img_500, unavailable, noPicture } from "../config/config";
+import Carousel from "./Carousel";
 // STYLING AND ANIMATION
 import styled from "styled-components";
 import { motion } from "framer-motion";
@@ -13,7 +14,7 @@ const MovieDetail = () => {
   return (
     <CardShadow>
       <Detail>
-        <div className="stats">
+        <div class="stats">
           <div className="rating">
             <h3>
               {movie.title} ({(movie.release_date || "-----").substring(0, 4)})
@@ -47,7 +48,7 @@ const MovieDetail = () => {
         <div className="description">
           <p>{movie.overview}</p>
         </div>
-        <div className="carousel">
+        {/* <div className="carousel">
           {credits.cast.map((cast) => (
             <img
               src={
@@ -59,7 +60,8 @@ const MovieDetail = () => {
               alt={cast?.name}
             />
           ))}
-        </div>
+        </div> */}
+        <Carousel />
       </Detail>
     </CardShadow>
   );
@@ -89,11 +91,19 @@ const CardShadow = styled(motion.div)`
 const Detail = styled(motion.div)`
   width: 80%;
   border-radius: 1rem;
-  padding: 2rem 20rem;
+  padding: 2rem 5rem;
   background: white;
   position: absolute;
   left: 10%;
   color: black;
 `;
+
+const Stats = styled(motion.div)`
+  display: flex;
+  align-item: center;
+  justify-content: space-between;
+`;
+
+const Description = styled(motion.div)``;
 
 export default MovieDetail;
