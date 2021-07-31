@@ -14,41 +14,44 @@ const MovieDetail = () => {
   return (
     <CardShadow>
       <Detail>
-        <div className="media">
-          <img
-            src={
-              movie.backdrop_path
-                ? `${img_400}/${movie.poster_path}`
-                : unavailable
-            }
-            alt={movie.name}
-          />
-        </div>
-
-        <div class="stats">
-          <div className="rating">
-            <h3>
-              {movie.title} ({(movie.release_date || "-----").substring(0, 4)})
-            </h3>
-
-            <p>Rating: {movie.vote_average}</p>
+        <DescriptionMovie>
+          <div className="media">
+            <img
+              src={
+                movie.backdrop_path
+                  ? `${img_400}/${movie.poster_path}`
+                  : unavailable
+              }
+              alt={movie.name}
+            />
           </div>
 
-          <div className="info">
-            <div className="genres">
-              {movie.genres.map((genre) => (
-                <h3 key={genre.id}>{genre.name}</h3>
-              ))}
-              {movie.runtime} minutes
+          <Info>
+            <div className="title">
+              <h3>
+                {movie.title} ({(movie.release_date || "-----").substring(0, 4)}
+                )
+              </h3>
             </div>
-          </div>
-        </div>
 
-        {/* {movie.tagline && <i className="tagline">{movie.tagline}</i>} */}
-        <i className="tagline">{movie.tagline}</i>
-        <div className="description">
-          <p>{movie.overview}</p>
-        </div>
+            <Stats>
+              <p>Rating: {movie.vote_average}</p>
+              <Genres>
+                {movie.genres.map((genre) => (
+                  <h3 key={genre.id}>{genre.name}</h3>
+                ))}
+              </Genres>
+              {movie.runtime} minutes
+            </Stats>
+
+            {/* {movie.tagline && <i className="tagline">{movie.tagline}</i>} */}
+            <i className="tagline">{movie.tagline}</i>
+            <div className="overview">
+              <p>{movie.overview}</p>
+            </div>
+          </Info>
+        </DescriptionMovie>
+
         <Carousel />
       </Detail>
     </CardShadow>
@@ -86,10 +89,22 @@ const Detail = styled(motion.div)`
   color: black;
 `;
 
+const DescriptionMovie = styled(motion.div)`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const Info = styled(motion.div)``;
+
 const Stats = styled(motion.div)`
   display: flex;
-  align-item: center;
-  justify-content: space-between;
+  align-items: center;
+`;
+
+const Genres = styled(motion.div)`
+  display: flex;
+  align-items: center;
 `;
 
 const Description = styled(motion.div)``;
