@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 
 const MovieDetail = () => {
   // DATA
-  const { movie, credits } = useSelector((state) => state.detail);
+  const { movie, credits, video } = useSelector((state) => state.detail);
 
   return (
     <CardShadow>
@@ -49,6 +49,13 @@ const MovieDetail = () => {
             <div className="overview">
               <p>{movie.overview}</p>
             </div>
+            <a
+              className="video"
+              target="__blank"
+              href={`https://www.youtube.com/watch?v=${video.results[0]?.key}`}
+            >
+              Watch the trailer
+            </a>
           </Info>
         </DescriptionMovie>
 
@@ -92,10 +99,12 @@ const Detail = styled(motion.div)`
 const DescriptionMovie = styled(motion.div)`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 `;
 
-const Info = styled(motion.div)``;
+const Info = styled(motion.div)`
+  padding-left: 3rem;
+`;
 
 const Stats = styled(motion.div)`
   display: flex;
@@ -108,5 +117,7 @@ const Genres = styled(motion.div)`
 `;
 
 const Description = styled(motion.div)``;
+
+const Video = styled(motion.div)``;
 
 export default MovieDetail;
