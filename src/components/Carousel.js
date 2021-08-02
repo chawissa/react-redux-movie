@@ -14,7 +14,7 @@ const Carousel = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const items = credits.cast.map((cast) => (
-    <div className="carouselItem">
+    <CarouselItem>
       <img
         src={cast.profile_path ? `${img_185}/${cast.profile_path}` : noPicture}
         alt={cast?.name}
@@ -22,7 +22,7 @@ const Carousel = () => {
         className="carouselItem__img"
       />
       <b className="carouselItem__txt">{cast?.name}</b>
-    </div>
+    </CarouselItem>
   ));
 
   const slidePrev = () => setActiveIndex(activeIndex - 1);
@@ -52,21 +52,32 @@ const Carousel = () => {
       activeIndex={activeIndex}
       onSlideChange={syncActiveIndex}
     />,
-    <div
-      className="b-refs-buttons"
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        margin: "20px",
-      }}
-    >
-      <LeftArrowAlt
-        onClick={slidePrev}
-        style={{ marginRight: "15px", cursor: "pointer" }}
-      />
-      <RightArrowAlt onClick={slideNext} style={{ cursor: "pointer" }} />
-    </div>,
+    <Buttons>
+      <SmallLeftArrowAlt onClick={slidePrev} style={{ marginRight: "15px" }} />
+      <SmallRightArrowAlt onClick={slideNext} style={{ cursor: "pointer" }} />
+    </Buttons>,
   ];
 };
+
+const CarouselItem = styled(motion.div)`
+ display: flex;
+  flex-direction: column;
+  object-fit: contain;
+  padding: 10px;
+`
+
+const Buttons = styled(motion.div)`
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+`;
+
+const SmallLeftArrowAlt = styled(LeftArrowAlt)`
+  height: 4rem;
+`;
+
+const SmallRightArrowAlt = styled(RightArrowAlt)`
+  height: 4rem;
+`;
 
 export default Carousel;

@@ -4,6 +4,7 @@ import Carousel from "./Carousel";
 // STYLING AND ANIMATION
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { Play } from "@styled-icons/boxicons-regular";
 // REDUX
 import { useSelector } from "react-redux";
 
@@ -49,13 +50,14 @@ const MovieDetail = () => {
             <div className="overview">
               <p>{movie.overview}</p>
             </div>
-            <a
+            <Button
               className="video"
-              target="__blank"
+              target="_blank"
               href={`https://www.youtube.com/watch?v=${video.results[0]?.key}`}
             >
+              <SmallPlay />
               Watch the trailer
-            </a>
+            </Button>
           </Info>
         </DescriptionMovie>
 
@@ -94,6 +96,7 @@ const Detail = styled(motion.div)`
   position: absolute;
   left: 10%;
   color: black;
+  
 `;
 
 const DescriptionMovie = styled(motion.div)`
@@ -118,6 +121,20 @@ const Genres = styled(motion.div)`
 
 const Description = styled(motion.div)``;
 
-const Video = styled(motion.div)``;
+const Button = styled.a`
+  display: inline-block;
+  border-radius: 3px;
+  padding: 0.5rem 0;
+  margin: 2rem 0;
+  width: 15rem;
+  background: #ff7676;
+  color: white;
+  border: none;
+  cursor: pointer;
+`;
+
+const SmallPlay = styled(Play)`
+  height: 3rem;
+`;
 
 export default MovieDetail;
