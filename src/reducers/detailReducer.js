@@ -1,4 +1,8 @@
-const initialState = { movie: {}, credits: {}, video: {} };
+const initialState = {
+  movie: { genres: [] },
+  credits: { cast: [] },
+  video: { results: [] },
+};
 
 const detailReducer = (state = initialState, action) => {
   switch (action.type) {

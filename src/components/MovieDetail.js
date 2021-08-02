@@ -48,7 +48,7 @@ const MovieDetail = () => {
             {/* {movie.tagline && <i className="tagline">{movie.tagline}</i>} */}
             <i className="tagline">{movie.tagline}</i>
             <Overview>
-            <h3>Overview</h3>
+              <h3>Overview</h3>
               <p>{movie.overview}</p>
             </Overview>
             <Button
@@ -96,8 +96,6 @@ const Detail = styled(motion.div)`
   position: absolute;
   left: 10%;
   color: black;
-  
-  
 `;
 
 const DescriptionMovie = styled(motion.div)`
@@ -105,7 +103,6 @@ const DescriptionMovie = styled(motion.div)`
   align-items: center;
   justify-content: center;
   padding-bottom: 2rem;
-  object-fit: contain;
 `;
 
 const Info = styled(motion.div)`
@@ -123,13 +120,12 @@ const Genres = styled(motion.div)`
   display: flex;
 
   & p {
-    padding: 0 .3rem;
+    padding: 0 0.3rem;
   }
-
 `;
 
 const Overview = styled(motion.div)`
-margin: 1rem 0;
+  margin: 1rem 0;
 `;
 
 const Button = styled.a`

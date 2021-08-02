@@ -8,8 +8,14 @@ import MovieDetail from "../components/MovieDetail";
 // STYLING AND ANIMATION
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { useLocation } from "react-router-dom";
 
 const Home = () => {
+  // GET THE CURRENT LOCATION
+  const location = useLocation();
+  const pathId = location.pathname.split("/")[2];
+  console.log(pathId);
+
   // FETCH MOVIES
   const dispatch = useDispatch();
   useEffect(() => {
@@ -22,7 +28,7 @@ const Home = () => {
 
   return (
     <MovieList>
-      <MovieDetail />
+      {pathId && <MovieDetail />}
       <h2>Now Showing</h2>
       <Movies>
         {nowShowing.map((movie) => (
