@@ -53,7 +53,7 @@ const Carousel = () => {
       onSlideChange={syncActiveIndex}
     />,
     <Buttons>
-      <SmallLeftArrowAlt onClick={slidePrev} style={{ marginRight: "15px" }} />
+      <SmallLeftArrowAlt onClick={slidePrev}  />
       <SmallRightArrowAlt onClick={slideNext} style={{ cursor: "pointer" }} />
     </Buttons>,
   ];
@@ -69,15 +69,18 @@ const CarouselItem = styled(motion.div)`
 const Buttons = styled(motion.div)`
   display: flex;
   justify-content: center;
-  margin: 20px;
+  margin: 1.5rem;
 `;
 
 const SmallLeftArrowAlt = styled(LeftArrowAlt)`
   height: 4rem;
+  margin-right: 1.5rem;
+  cursor: pointer;
 `;
 
 const SmallRightArrowAlt = styled(RightArrowAlt)`
   height: 4rem;
+  cursor: pointer;
 `;
 
 export default Carousel;

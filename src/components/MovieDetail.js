@@ -39,19 +39,19 @@ const MovieDetail = () => {
               <p>Rating: {movie.vote_average}</p>
               <Genres>
                 {movie.genres.map((genre) => (
-                  <h3 key={genre.id}>{genre.name}</h3>
+                  <p key={genre.id}>{genre.name}</p>
                 ))}
               </Genres>
-              {movie.runtime} minutes
+              <p>{movie.runtime} minutes</p>
             </Stats>
 
             {/* {movie.tagline && <i className="tagline">{movie.tagline}</i>} */}
             <i className="tagline">{movie.tagline}</i>
-            <div className="overview">
+            <Overview>
+            <h3>Overview</h3>
               <p>{movie.overview}</p>
-            </div>
+            </Overview>
             <Button
-              className="video"
               target="_blank"
               href={`https://www.youtube.com/watch?v=${video.results[0]?.key}`}
             >
@@ -91,11 +91,12 @@ const CardShadow = styled(motion.div)`
 const Detail = styled(motion.div)`
   width: 80%;
   border-radius: 1rem;
-  padding: 2rem 5rem;
+  padding: 3rem 5rem;
   background: white;
   position: absolute;
   left: 10%;
   color: black;
+  
   
 `;
 
@@ -103,6 +104,8 @@ const DescriptionMovie = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-bottom: 2rem;
+  object-fit: contain;
 `;
 
 const Info = styled(motion.div)`
@@ -111,26 +114,35 @@ const Info = styled(motion.div)`
 
 const Stats = styled(motion.div)`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-bottom: 1rem;
 `;
 
 const Genres = styled(motion.div)`
   display: flex;
-  align-items: center;
+
+  & p {
+    padding: 0 .3rem;
+  }
+
 `;
 
-const Description = styled(motion.div)``;
+const Overview = styled(motion.div)`
+margin: 1rem 0;
+`;
 
 const Button = styled.a`
   display: inline-block;
   border-radius: 3px;
-  padding: 0.5rem 0;
-  margin: 2rem 0;
-  width: 15rem;
+  padding: 0.5rem 2rem;
+  margin: 1rem 0;
+  text-align: center;
   background: #ff7676;
   color: white;
   border: none;
   cursor: pointer;
+  font-size: 1.3rem;
 `;
 
 const SmallPlay = styled(Play)`
