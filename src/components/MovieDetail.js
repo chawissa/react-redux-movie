@@ -1,5 +1,5 @@
 import React from "react";
-import { img_300, img_400, unavailable, noPicture } from "../config/config";
+import { img_500, unavailableLandscape } from "../config/config";
 import Carousel from "./Carousel";
 // STYLING AND ANIMATION
 import styled from "styled-components";
@@ -10,22 +10,22 @@ import { useSelector } from "react-redux";
 
 const MovieDetail = () => {
   // DATA
-  const { movie, credits, video } = useSelector((state) => state.detail);
+  const { movie, video } = useSelector((state) => state.detail);
 
   return (
     <CardShadow>
       <Detail>
         <DescriptionMovie>
-          <div className="media">
+          <Media>
             <img
               src={
                 movie.backdrop_path
-                  ? `${img_400}/${movie.poster_path}`
-                  : unavailable
+                  ? `${img_500}/${movie.backdrop_path}`
+                  : unavailableLandscape
               }
               alt={movie.name}
             />
-          </div>
+          </Media>
 
           <Info>
             <div className="title">
@@ -36,7 +36,7 @@ const MovieDetail = () => {
             </div>
 
             <Stats>
-              <p>Rating: {movie.vote_average}</p>
+              <p> Rating: {movie.vote_average || "--"}</p>
               <Genres>
                 {movie.genres.map((genre) => (
                   <p key={genre.id}>{genre.name}</p>
@@ -98,21 +98,21 @@ const Detail = styled(motion.div)`
   color: black;
 `;
 
-const DescriptionMovie = styled(motion.div)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 2rem;
+const DescriptionMovie = styled(motion.div)``;
+
+const Media = styled(motion.div)`
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
 `;
 
-const Info = styled(motion.div)`
-  padding-left: 3rem;
-`;
+const Info = styled(motion.div)``;
 
 const Stats = styled(motion.div)`
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
+
   padding-bottom: 1rem;
 `;
 
@@ -128,7 +128,7 @@ const Overview = styled(motion.div)`
   margin: 1rem 0;
 `;
 
-const Button = styled.a`
+const Button = styled(motion.a)`
   display: inline-block;
   border-radius: 3px;
   padding: 0.5rem 2rem;

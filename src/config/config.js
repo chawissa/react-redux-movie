@@ -1,7 +1,7 @@
 //image sizes for tmdb
 export const img_185 = "https://image.tmdb.org/t/p/w185";
 export const img_300 = "https://image.tmdb.org/t/p/w300";
-export const img_400 = "https://image.tmdb.org/t/p/w400";
+export const img_500 = "https://image.tmdb.org/t/p/w780";
 export const unavailable =
   "https://www.movienewz.com/img/films/poster-holder.jpg";
 
