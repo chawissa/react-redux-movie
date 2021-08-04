@@ -9,7 +9,7 @@ import { Play } from "@styled-icons/boxicons-regular";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-const MovieDetail = () => {
+const MovieDetail = ({ pathId }) => {
   const history = useHistory();
   // EXIT DETAIL
   const handleExitDetail = (e) => {
@@ -26,10 +26,11 @@ const MovieDetail = () => {
     <>
       {!isLoading && (
         <CardShadow className="shadow" onClick={handleExitDetail}>
-          <Detail>
+          <Detail layoutId={pathId}>
             <DescriptionMovie>
               <Media>
-                <img
+                <motion.img
+                  layoutId={`image ${pathId}`}
                   src={
                     movie.backdrop_path
                       ? `${img_780}/${movie.backdrop_path}`
@@ -41,10 +42,10 @@ const MovieDetail = () => {
 
               <Info>
                 <Title>
-                  <h3>
+                  <motion.h3 layoutId={`title ${pathId}`}>
                     {movie.title} (
                     {(movie.release_date || "-----").substring(0, 4)})
-                  </h3>
+                  </motion.h3>
                 </Title>
 
                 <Stats>

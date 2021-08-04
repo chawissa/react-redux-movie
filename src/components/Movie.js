@@ -9,6 +9,7 @@ import { loadDetail } from "../actions/detailAction";
 import { Link } from "react-router-dom";
 
 const Movie = ({ name, released, poster, id }) => {
+  const stringPathId = id.toString();
   // LOAD DETAIL HANDLER
   const dispatch = useDispatch();
   const handleLoadDetail = () => {
@@ -17,10 +18,14 @@ const Movie = ({ name, released, poster, id }) => {
   };
 
   return (
-    <StyledMovie onClick={handleLoadDetail}>
+    <StyledMovie layoutId={stringPathId} onClick={handleLoadDetail}>
       <Link to={`/movie/${id}`}>
-        <img alt={name} src={poster ? `${img_300}/${poster}` : unavailable} />
-        <h3>{name}</h3>
+        <motion.img
+          layoutId={`image ${stringPathId}`}
+          alt={name}
+          src={poster ? `${img_300}/${poster}` : unavailable}
+        />
+        <motion.h3 layoutId={`title ${stringPathId}`}>{name}</motion.h3>
         <p>{released}</p>
       </Link>
     </StyledMovie>
