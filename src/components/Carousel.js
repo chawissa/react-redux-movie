@@ -47,24 +47,24 @@ const Carousel = () => {
       mouseTracking
       items={items}
       //   autoPlay={true}
-      disableDotsControls
+      // disableDotsControls
       disableButtonsControls
       activeIndex={activeIndex}
       onSlideChange={syncActiveIndex}
     />,
     <Buttons>
-      <SmallLeftArrowAlt onClick={slidePrev}  />
-      <SmallRightArrowAlt onClick={slideNext} style={{ cursor: "pointer" }} />
+      <SmallLeftArrowAlt onClick={slidePrev} disabled={true} />
+      <SmallRightArrowAlt onClick={slideNext} />
     </Buttons>,
   ];
 };
 
 const CarouselItem = styled(motion.div)`
- display: flex;
+  display: flex;
   flex-direction: column;
   object-fit: contain;
   padding: 10px;
-`
+`;
 
 const Buttons = styled(motion.div)`
   display: flex;

@@ -2,6 +2,7 @@ const initialState = {
   movie: { genres: [] },
   credits: { cast: [] },
   video: { results: [] },
+  isLoading: true,
 };
 
 const detailReducer = (state = initialState, action) => {
@@ -12,6 +13,12 @@ const detailReducer = (state = initialState, action) => {
         movie: action.payload.movie,
         credits: action.payload.credits,
         video: action.payload.video,
+        isLoading: false,
+      };
+    case "LOADING_DETAIL":
+      return {
+        ...state,
+        isLoading: true,
       };
     default:
       return { ...state };

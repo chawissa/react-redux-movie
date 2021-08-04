@@ -1,5 +1,5 @@
 import React from "react";
-import { img_500, unavailableLandscape } from "../config/config";
+import { img_780, unavailableLandscape } from "../config/config";
 import Carousel from "./Carousel";
 // STYLING AND ANIMATION
 import styled from "styled-components";
@@ -20,7 +20,7 @@ const MovieDetail = () => {
             <img
               src={
                 movie.backdrop_path
-                  ? `${img_500}/${movie.backdrop_path}`
+                  ? `${img_780}/${movie.backdrop_path}`
                   : unavailableLandscape
               }
               alt={movie.name}
@@ -28,21 +28,21 @@ const MovieDetail = () => {
           </Media>
 
           <Info>
-            <div className="title">
+            <Title>
               <h3>
                 {movie.title} ({(movie.release_date || "-----").substring(0, 4)}
                 )
               </h3>
-            </div>
+            </Title>
 
             <Stats>
-              <p> Rating: {movie.vote_average || "--"}</p>
+              {movie.vote_average !== 0 && <p> Rating: {movie.vote_average}</p>}
               <Genres>
                 {movie.genres.map((genre) => (
                   <p key={genre.id}>{genre.name}</p>
                 ))}
               </Genres>
-              <p>{movie.runtime} minutes</p>
+              {movie.runtime !== 0 && <p>{movie.runtime} minutes</p>}
             </Stats>
 
             {/* {movie.tagline && <i className="tagline">{movie.tagline}</i>} */}
@@ -109,17 +109,23 @@ const Media = styled(motion.div)`
 
 const Info = styled(motion.div)``;
 
+const Title = styled(motion.div)`
+  h3 {
+    font-size: 2.5rem;
+  }
+`;
+
 const Stats = styled(motion.div)`
   display: flex;
   align-items: flex-start;
-
   padding-bottom: 1rem;
+  object-fit: contain;
 `;
 
 const Genres = styled(motion.div)`
   display: flex;
 
-  & p {
+  p {
     padding: 0 0.3rem;
   }
 `;
