@@ -21,11 +21,11 @@ const Movie = ({ name, released, poster, id }) => {
     <StyledMovie layoutId={stringPathId} onClick={handleLoadDetail}>
       <Link to={`/movie/${id}`}>
         <motion.img
-          layoutId={`image ${stringPathId}`}
+          layoutId={`image-${stringPathId}`}
           alt={name}
           src={poster ? `${img_300}/${poster}` : unavailable}
         />
-        <motion.h3 layoutId={`title ${stringPathId}`}>{name}</motion.h3>
+        <motion.h3 layoutId={`title-${stringPathId}`}>{name}</motion.h3>
         <p>{released}</p>
       </Link>
     </StyledMovie>

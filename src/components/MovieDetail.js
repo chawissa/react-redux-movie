@@ -30,7 +30,7 @@ const MovieDetail = ({ pathId }) => {
             <DescriptionMovie>
               <Media>
                 <motion.img
-                  layoutId={`image ${pathId}`}
+                  layoutId={`image-${pathId}`}
                   src={
                     movie.backdrop_path
                       ? `${img_780}/${movie.backdrop_path}`
@@ -42,7 +42,7 @@ const MovieDetail = ({ pathId }) => {
 
               <Info>
                 <Title>
-                  <motion.h3 layoutId={`title ${pathId}`}>
+                  <motion.h3 layoutId={`title-${pathId}`}>
                     {movie.title} (
                     {(movie.release_date || "-----").substring(0, 4)})
                   </motion.h3>
@@ -92,6 +92,7 @@ const CardShadow = styled(motion.div)`
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 10;
   &::-webkit-scrollbar {
     width: 0.5rem;
   }
