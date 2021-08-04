@@ -9,9 +9,10 @@ import { loadDetail } from "../actions/detailAction";
 import { Link } from "react-router-dom";
 
 const Movie = ({ name, released, poster, id }) => {
-  // LOAD DETAIL
+  // LOAD DETAIL HANDLER
   const dispatch = useDispatch();
   const handleLoadDetail = () => {
+    document.body.style.overflow = "hidden";
     dispatch(loadDetail(id));
   };
 

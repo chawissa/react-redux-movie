@@ -7,63 +7,79 @@ import { motion } from "framer-motion";
 import { Play } from "@styled-icons/boxicons-regular";
 // REDUX
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 const MovieDetail = () => {
+  const history = useHistory();
+  // EXIT DETAIL
+  const handleExitDetail = (e) => {
+    const element = e.target;
+    if (element.classList.contains("shadow")) {
+      document.body.style.overflow = "auto";
+      history.push("/");
+    }
+  };
   // DATA
-  const { movie, video } = useSelector((state) => state.detail);
+  const { movie, video, isLoading } = useSelector((state) => state.detail);
 
   return (
-    <CardShadow>
-      <Detail>
-        <DescriptionMovie>
-          <Media>
-            <img
-              src={
-                movie.backdrop_path
-                  ? `${img_780}/${movie.backdrop_path}`
-                  : unavailableLandscape
-              }
-              alt={movie.name}
-            />
-          </Media>
+    <>
+      {!isLoading && (
+        <CardShadow className="shadow" onClick={handleExitDetail}>
+          <Detail>
+            <DescriptionMovie>
+              <Media>
+                <img
+                  src={
+                    movie.backdrop_path
+                      ? `${img_780}/${movie.backdrop_path}`
+                      : unavailableLandscape
+                  }
+                  alt={movie.name}
+                />
+              </Media>
 
-          <Info>
-            <Title>
-              <h3>
-                {movie.title} ({(movie.release_date || "-----").substring(0, 4)}
-                )
-              </h3>
-            </Title>
+              <Info>
+                <Title>
+                  <h3>
+                    {movie.title} (
+                    {(movie.release_date || "-----").substring(0, 4)})
+                  </h3>
+                </Title>
 
-            <Stats>
-              {movie.vote_average !== 0 && <p> Rating: {movie.vote_average}</p>}
-              <Genres>
-                {movie.genres.map((genre) => (
-                  <p key={genre.id}>{genre.name}</p>
-                ))}
-              </Genres>
-              {movie.runtime !== 0 && <p>{movie.runtime} minutes</p>}
-            </Stats>
+                <Stats>
+                  {movie.vote_average !== 0 && (
+                    <p> Rating: {movie.vote_average}</p>
+                  )}
+                  <Genres>
+                    {movie.genres.map((genre) => (
+                      <p key={genre.id}>{genre.name}</p>
+                    ))}
+                  </Genres>
+                  {movie.runtime !== 0 && <p>{movie.runtime} minutes</p>}
+                </Stats>
 
-            {/* {movie.tagline && <i className="tagline">{movie.tagline}</i>} */}
-            <i className="tagline">{movie.tagline}</i>
-            <Overview>
-              <h3>Overview</h3>
-              <p>{movie.overview}</p>
-            </Overview>
-            <Button
-              target="_blank"
-              href={`https://www.youtube.com/watch?v=${video.results[0]?.key}`}
-            >
-              <SmallPlay />
-              Watch the trailer
-            </Button>
-          </Info>
-        </DescriptionMovie>
+                {/* {movie.tagline && <i className="tagline">{movie.tagline}</i>} */}
+                <i className="tagline">{movie.tagline}</i>
+                <Overview>
+                  <h3>Overview</h3>
+                  <p>{movie.overview}</p>
+                </Overview>
+                <Button
+                  target="_blank"
+                  href={`https://www.youtube.com/watch?v=${video.results[0]?.key}`}
+                >
+                  <SmallPlay />
+                  Watch the trailer
+                </Button>
+              </Info>
+            </DescriptionMovie>
 
-        <Carousel />
-      </Detail>
-    </CardShadow>
+            <Carousel />
+          </Detail>
+        </CardShadow>
+      )}
+    </>
   );
 };
 
@@ -96,6 +112,7 @@ const Detail = styled(motion.div)`
   position: absolute;
   left: 10%;
   color: black;
+  overflow: hidden;
 `;
 
 const DescriptionMovie = styled(motion.div)``;
