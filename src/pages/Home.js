@@ -46,45 +46,45 @@ const Home = () => {
       <AnimateSharedLayout type="crossfade">
         <AnimatePresence>
           {pathId && <MovieDetail pathId={pathId} />}
-
-          <h2>Now Showing</h2>
-          <Movies>
-            {nowShowing.map((movie) => (
-              <Movie
-                name={movie.title}
-                released={movie.release_date}
-                id={movie.id}
-                poster={movie.poster_path}
-                key={movie.id}
-              />
-            ))}
-          </Movies>
-          <h2>Upcoming</h2>
-          <Movies>
-            {upcoming.map((movie) => (
-              <Movie
-                name={movie.title}
-                released={movie.release_date}
-                id={movie.id}
-                poster={movie.poster_path}
-                key={movie.id}
-              />
-            ))}
-          </Movies>
-          <h2>Popular</h2>
-          <Movies>
-            {popular.map((movie) => (
-              <Movie
-                name={movie.title}
-                released={movie.release_date}
-                id={movie.id}
-                poster={movie.poster_path}
-                key={movie.id}
-              />
-            ))}
-          </Movies>
         </AnimatePresence>
+        <h2>Now Showing</h2>
+        <Movies>
+          {nowShowing.map((movie) => (
+            <Movie
+              name={movie.title}
+              released={movie.release_date}
+              id={movie.id}
+              poster={movie.poster_path}
+              key={movie.id}
+            />
+          ))}
+        </Movies>
+        <h2>Upcoming</h2>
+        <Movies>
+          {upcoming.map((movie) => (
+            <Movie
+              name={movie.title}
+              released={movie.release_date}
+              id={movie.id}
+              poster={movie.poster_path}
+              key={movie.id}
+            />
+          ))}
+        </Movies>
       </AnimateSharedLayout>
+
+      <h2>Popular</h2>
+      <Movies>
+        {popular.map((movie) => (
+          <Movie
+            name={movie.title}
+            released={movie.release_date}
+            id={movie.id}
+            poster={movie.poster_path}
+            key={movie.id}
+          />
+        ))}
+      </Movies>
     </MovieList>
   );
 };
