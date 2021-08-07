@@ -3,6 +3,7 @@ import {
   popularMoviesURL,
   nowShowingMoviesURL,
   upcomingMoviesURL,
+  searchMovieURL,
 } from "../api";
 
 // ACTION CREATOR
@@ -18,6 +19,17 @@ export const loadMovies = () => async (dispatch) => {
       popular: popularData.data.results,
       nowShowing: nowShowingData.data.results,
       upcoming: upcomingData.data.results,
+    },
+  });
+};
+
+export const fetchSearch = (movie_name) => async (dispatch) => {
+  const searchMovies = await axios.get(searchMovieURL(movie_name));
+
+  dispatch({
+    type: "FETCH_SEARCHED",
+    payload: {
+      searched: searchMovies.data.results,
     },
   });
 };

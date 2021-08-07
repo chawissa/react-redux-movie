@@ -2,15 +2,18 @@ import React from "react";
 // ANIMATIONS
 import styled from "styled-components";
 import { motion } from "framer-motion";
+// REDUX AND ROUTES
+import { fetchSearch } from "../actions/moviesAction";
+import { useDispatch } from "react-redux";
 
 const Nav = () => {
   return (
     <StyledNav>
       <h1>Movies</h1>
-      <div className="search">
+      <form className="search">
         <input type="text" />
-        <button>Search</button>
-      </div>
+        <button type="submit">Search</button>
+      </form>
     </StyledNav>
   );
 };

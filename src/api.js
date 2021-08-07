@@ -1,5 +1,5 @@
 //Base URL
-const base_url = "https://api.themoviedb.org/3/movie/";
+const base_url = "https://api.themoviedb.org/3/";
 
 // Movies
 // const movies = `{movie_id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
@@ -32,9 +32,9 @@ const base_url = "https://api.themoviedb.org/3/movie/";
 // const nextYear = `${currentYear + 1}-${currentMonth}-${currentDay}`;
 
 // Popular movies
-const popular_movies = `popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&region=US&page=1`;
-const nowShowing_movies = `now_playing?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&region=US&page=1`;
-const upcoming_movies = `upcoming?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&region=US&page=1`;
+const popular_movies = `movie/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&region=US&page=1`;
+const nowShowing_movies = `movie/now_playing?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&region=US&page=1`;
+const upcoming_movies = `movie/upcoming?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&region=US&page=1`;
 
 export const popularMoviesURL = () => `${base_url}${popular_movies}`;
 export const nowShowingMoviesURL = () => `${base_url}${nowShowing_movies}`;
@@ -49,3 +49,6 @@ export const movieCreditsURL = (movie_id) =>
 
 export const movieVideoURL = (movie_id) =>
   `${base_url}${movie_id}/videos?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
+// SEARCHED MOVIE
+export const searchMovieURL = (movie_title) =>
+  `${base_url}search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${movie_title}&page=1&include_adult=false`;
