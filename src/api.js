@@ -2,7 +2,7 @@
 const base_url = "https://api.themoviedb.org/3/movie/";
 
 // Movies
-const movies = `{movie_id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
+// const movies = `{movie_id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
 
 // Getting the date
 // const getCurrentMonth = () => {

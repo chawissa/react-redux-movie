@@ -13,7 +13,7 @@ const Carousel = () => {
   const { credits } = useSelector((state) => state.detail);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const items = credits.cast.map((cast) => (
+  const items = credits?.cast.map((cast) => (
     <CarouselItem>
       <img
         src={cast.profile_path ? `${img_185}/${cast.profile_path}` : noPicture}

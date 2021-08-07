@@ -18,11 +18,7 @@ const Movie = ({ name, released, poster, id }) => {
   };
 
   return (
-    <StyledMovie
-      layout={false}
-      layoutId={stringPathId}
-      onClick={handleLoadDetail}
-    >
+    <StyledMovie layoutId={stringPathId} onClick={handleLoadDetail}>
       <Link to={`/movie/${id}`}>
         <motion.img
           layoutId={`image-${stringPathId}`}

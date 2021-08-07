@@ -10,13 +10,11 @@ import MovieDetail from "../components/MovieDetail";
 import styled from "styled-components";
 import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import { useLocation } from "react-router-dom";
-import { loadOptions } from "@babel/core";
 
 const Home = () => {
   // GET THE CURRENT LOCATION
   const location = useLocation();
   const pathId = location.pathname.split("/")[2];
-  console.log(pathId);
 
   if (!pathId) {
     document.body.style.overflow = "auto";
@@ -73,7 +71,7 @@ const Home = () => {
         </Movies>
       </AnimateSharedLayout>
 
-      <h2>Popular</h2>
+      {/* <h2>Popular</h2>
       <Movies>
         {popular.map((movie) => (
           <Movie
@@ -84,7 +82,7 @@ const Home = () => {
             key={movie.id}
           />
         ))}
-      </Movies>
+      </Movies> */}
     </MovieList>
   );
 };
