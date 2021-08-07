@@ -1,16 +1,19 @@
 import React from "react";
 // COMPONENTS AND PAGES
 import Home from "./pages/Home";
+import Nav from "./components/Nav";
+// STYLES
 import GlobalStyles from "./components/GlobalStyles";
-import {Route} from "react-router-dom";
-
+// ROUTER
+import { Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
       <GlobalStyles />
+      <Nav />
       <Route path={["/movie/:id", "/"]}>
-      <Home />
+        <Home />
       </Route>
     </div>
   );
