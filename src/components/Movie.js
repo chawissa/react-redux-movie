@@ -20,9 +20,9 @@ const Movie = ({ name, released, poster, id }) => {
 
   return (
     <StyledMovie
-      variants={popup}
-      initial="hidden"
-      animate="show"
+      // variants={popup}
+      // initial="hidden"
+      // animate="show"
       layoutId={stringPathId}
       onClick={handleLoadDetail}
     >

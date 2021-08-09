@@ -94,7 +94,7 @@ const CardShadow = styled(motion.div)`
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 10;
+  z-index: 5;
   &::-webkit-scrollbar {
     width: 0.5rem;
   }
@@ -117,6 +117,10 @@ const Detail = styled(motion.div)`
   left: 10%;
   color: black;
   overflow: hidden;
+  z-index: 10;
+  @media (max-width: 900px) {
+    padding: 2rem 2rem;
+  }
 `;
 
 const DescriptionMovie = styled(motion.div)``;
@@ -134,6 +138,12 @@ const Title = styled(motion.div)`
   h3 {
     font-size: 2.5rem;
   }
+
+  @media (max-width: 540px) {
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
 `;
 
 const Stats = styled(motion.div)`
@@ -141,6 +151,11 @@ const Stats = styled(motion.div)`
   align-items: flex-start;
   padding-bottom: 1rem;
   object-fit: contain;
+
+  @media (max-width: 780px) {
+    display: inline;
+    padding-bottom: 2rem;
+  }
 `;
 
 const Genres = styled(motion.div)`
@@ -148,6 +163,13 @@ const Genres = styled(motion.div)`
 
   p {
     padding: 0 0.3rem;
+  }
+
+  @media (max-width: 540px) {
+    flex-direction: column;
+    p {
+      padding: 0;
+    }
   }
 `;
 
