@@ -35,7 +35,7 @@ const Home = () => {
   }, [dispatch]);
 
   // GET DATA BACK
-  const { popular, nowShowing, upcoming } = useSelector(
+  const { popular, nowShowing, upcoming, searched } = useSelector(
     (state) => state.movies
   );
 
@@ -45,6 +45,24 @@ const Home = () => {
         <AnimatePresence>
           {pathId && <MovieDetail pathId={pathId} />}
         </AnimatePresence>
+        {searched.length ? (
+          <div className="searched">
+            <h2>Searched Movies</h2>
+            <Movies>
+              {searched.map((movie) => (
+                <Movie
+                  name={movie.title}
+                  released={movie.release_date}
+                  id={movie.id}
+                  poster={movie.poster_path}
+                  key={movie.id}
+                />
+              ))}
+            </Movies>
+          </div>
+        ) : (
+          ""
+        )}
         <h2>Now Showing</h2>
         <Movies>
           {nowShowing.map((movie) => (

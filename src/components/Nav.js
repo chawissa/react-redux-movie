@@ -17,11 +17,15 @@ const Nav = () => {
   const submitSearch = (e) => {
     e.preventDefault();
     dispatch(fetchSearch(textInput));
+    setTextInput("");
   };
 
+  const clearSearched = () => {
+    dispatch({ type: "CLEAR_SEARCHED" });
+  };
   return (
     <StyledNav>
-      <h1>Movies</h1>
+      <h1 onClick={clearSearched}>Movies</h1>
       <form className="search">
         <input value={textInput} onChange={handleInput} type="text" />
         <button onClick={submitSearch} type="submit">

@@ -49,9 +49,11 @@ const MovieDetail = ({ pathId }) => {
                 </Title>
 
                 <Stats>
-                  {movie.vote_average !== 0 && (
-                    <p> Rating: {movie.vote_average}</p>
-                  )}
+                  <div className="rating">
+                    {movie.vote_average !== 0 && (
+                      <p> Rating: {movie.vote_average}</p>
+                    )}
+                  </div>
                   <Genres>
                     {movie.genres.map((genre) => (
                       <p key={genre.id}>{genre.name}</p>

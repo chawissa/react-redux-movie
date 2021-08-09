@@ -42,13 +42,13 @@ export const upcomingMoviesURL = () => `${base_url}${upcoming_movies}`;
 
 // MOVIE DETAILS
 export const movieDetailsURL = (movie_id) =>
-  `${base_url}${movie_id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
+  `${base_url}movie/${movie_id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
 
 export const movieCreditsURL = (movie_id) =>
-  `${base_url}${movie_id}/credits?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
+  `${base_url}movie/${movie_id}/credits?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
 
 export const movieVideoURL = (movie_id) =>
-  `${base_url}${movie_id}/videos?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
+  `${base_url}movie/${movie_id}/videos?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
 // SEARCHED MOVIE
 export const searchMovieURL = (movie_title) =>
   `${base_url}search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${movie_title}&page=1&include_adult=false`;
