@@ -2,6 +2,7 @@ import React, { useState } from "react";
 // ANIMATIONS
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { fadeIn } from "../animations";
 // REDUX AND ROUTES
 import { fetchSearch } from "../actions/moviesAction";
 import { useDispatch } from "react-redux";
@@ -24,7 +25,7 @@ const Nav = () => {
     dispatch({ type: "CLEAR_SEARCHED" });
   };
   return (
-    <StyledNav>
+    <StyledNav variants={fadeIn} initial="hidden" animate="show">
       <h1 onClick={clearSearched}>Movies</h1>
       <form className="search">
         <input value={textInput} onChange={handleInput} type="text" />

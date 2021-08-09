@@ -3,6 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { img_300, unavailable } from "../config/config";
+import { popup } from "../animations";
 // REDUX
 import { useDispatch } from "react-redux";
 import { loadDetail } from "../actions/detailAction";
@@ -18,7 +19,13 @@ const Movie = ({ name, released, poster, id }) => {
   };
 
   return (
-    <StyledMovie layoutId={stringPathId} onClick={handleLoadDetail}>
+    <StyledMovie
+      variants={popup}
+      initial="hidden"
+      animate="show"
+      layoutId={stringPathId}
+      onClick={handleLoadDetail}
+    >
       <Link to={`/movie/${id}`}>
         <motion.img
           layoutId={`image-${stringPathId}`}

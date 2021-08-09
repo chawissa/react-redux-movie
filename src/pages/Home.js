@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 // REDUX
 import { useDispatch, useSelector } from "react-redux";
 import { loadMovies } from "../actions/moviesAction";
@@ -9,7 +10,7 @@ import MovieDetail from "../components/MovieDetail";
 // STYLING AND ANIMATION
 import styled from "styled-components";
 import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
-import { useLocation } from "react-router-dom";
+import { fadeIn } from "../animations";
 
 const Home = () => {
   // GET THE CURRENT LOCATION
@@ -40,29 +41,31 @@ const Home = () => {
   );
 
   return (
-    <MovieList>
+    <MovieList variants={fadeIn} initial="hidden" animate="show">
       <AnimateSharedLayout type="crossfade">
         <AnimatePresence>
           {pathId && <MovieDetail pathId={pathId} />}
         </AnimatePresence>
-        {searched.length ? (
-          <div className="searched">
-            <h2>Searched Movies</h2>
-            <Movies>
-              {searched.map((movie) => (
-                <Movie
-                  name={movie.title}
-                  released={movie.release_date}
-                  id={movie.id}
-                  poster={movie.poster_path}
-                  key={movie.id}
-                />
-              ))}
-            </Movies>
-          </div>
-        ) : (
-          ""
-        )}
+        <div>
+          {searched.length ? (
+            <div className="searched">
+              <h2>Searched Movies</h2>
+              <Movies>
+                {searched.map((movie) => (
+                  <Movie
+                    name={movie.title}
+                    released={movie.release_date}
+                    id={movie.id}
+                    poster={movie.poster_path}
+                    key={movie.id}
+                  />
+                ))}
+              </Movies>
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
         <h2>Now Showing</h2>
         <Movies>
           {nowShowing.map((movie) => (
