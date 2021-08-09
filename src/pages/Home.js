@@ -121,6 +121,7 @@ const Movies = styled(motion.div)`
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   grid-column-gap: 3rem;
   grid-row-gap: 5rem;
+  padding-bottom: 3rem;
 `;
 
 export default Home;
