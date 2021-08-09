@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // ANIMATIONS
 import styled from "styled-components";
 import { motion } from "framer-motion";
@@ -7,12 +7,26 @@ import { fetchSearch } from "../actions/moviesAction";
 import { useDispatch } from "react-redux";
 
 const Nav = () => {
+  const dispatch = useDispatch();
+  const [textInput, setTextInput] = useState("");
+
+  const handleInput = (e) => {
+    setTextInput(e.target.value);
+  };
+
+  const submitSearch = (e) => {
+    e.preventDefault();
+    dispatch(fetchSearch(textInput));
+  };
+
   return (
     <StyledNav>
       <h1>Movies</h1>
       <form className="search">
-        <input type="text" />
-        <button type="submit">Search</button>
+        <input value={textInput} onChange={handleInput} type="text" />
+        <button onClick={submitSearch} type="submit">
+          Search
+        </button>
       </form>
     </StyledNav>
   );
