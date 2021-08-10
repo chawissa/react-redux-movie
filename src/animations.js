@@ -25,7 +25,13 @@ export const popup = {
     opacity: 1,
     scale: 1,
     transition: {
-      duration: 0.75,
+      duration: 0.25,
+    },
+  },
+  close: {
+    opacity: 0,
+    transition: {
+      duration: 0.25,
     },
     exit: {
       opacity: 0,

@@ -1,16 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { img_780, unavailableLandscape } from "../config/config";
 import Carousel from "./Carousel";
 // STYLING AND ANIMATION
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { Play } from "@styled-icons/boxicons-regular";
+import { popup } from "../animations";
 // REDUX
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 const MovieDetail = ({ pathId }) => {
   const history = useHistory();
+
+  const [isOpen, setIsOpen] = useState(false);
+
   // EXIT DETAIL
   const handleExitDetail = (e) => {
     const element = e.target;
@@ -26,7 +30,12 @@ const MovieDetail = ({ pathId }) => {
     <>
       {!isLoading && (
         <CardShadow className="shadow" onClick={handleExitDetail}>
-          <Detail layoutId={pathId}>
+          <Detail
+            variants={popup}
+            initial="hidden"
+            animate="show"
+            layoutId={pathId}
+          >
             <DescriptionMovie>
               <Media>
                 <motion.img
