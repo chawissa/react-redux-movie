@@ -2,7 +2,7 @@ export const fadeIn = {
   hidden: {
     opacity: 0,
   },
-  show: {
+  visible: {
     opacity: 1,
     transition: {
       duration: 0.75,
@@ -19,25 +19,16 @@ export const fadeIn = {
 export const popup = {
   hidden: {
     opacity: 0,
-    scale: 0.5,
+    // scale: 0.5,
+    transition: {
+      duration: 0.35,
+    },
   },
-  show: {
+  visible: {
     opacity: 1,
-    scale: 1,
+    // scale: 1,
     transition: {
-      duration: 0.25,
-    },
-  },
-  close: {
-    opacity: 0,
-    transition: {
-      duration: 0.25,
-    },
-    exit: {
-      opacity: 0,
-      transition: {
-        duration: 0.75,
-      },
+      duration: 0.35,
     },
   },
 };

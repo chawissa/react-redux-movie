@@ -46,14 +46,14 @@ const Carousel = () => {
       responsive={responsive}
       mouseTracking
       items={items}
-      //   autoPlay={true}
-      // disableDotsControls
+      // autoPlay={true}
+      disableDotsControls
       disableButtonsControls
       activeIndex={activeIndex}
       onSlideChange={syncActiveIndex}
     />,
     <Buttons>
-      <SmallLeftArrowAlt onClick={slidePrev} disabled={true} />
+      <SmallLeftArrowAlt onClick={slidePrev} />
       <SmallRightArrowAlt onClick={slideNext} />
     </Buttons>,
   ];

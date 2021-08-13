@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { img_780, unavailableLandscape } from "../config/config";
 import Carousel from "./Carousel";
 // STYLING AND ANIMATION
@@ -12,8 +12,6 @@ import { useHistory } from "react-router-dom";
 
 const MovieDetail = ({ pathId }) => {
   const history = useHistory();
-
-  const [isOpen, setIsOpen] = useState(false);
 
   // EXIT DETAIL
   const handleExitDetail = (e) => {
@@ -33,7 +31,8 @@ const MovieDetail = ({ pathId }) => {
           <Detail
             variants={popup}
             initial="hidden"
-            animate="show"
+            animate="visible"
+            exit="hidden"
             layoutId={pathId}
           >
             <DescriptionMovie>

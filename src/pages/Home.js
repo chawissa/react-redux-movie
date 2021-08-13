@@ -41,9 +41,9 @@ const Home = () => {
   );
 
   return (
-    <MovieList variants={fadeIn} initial="hidden" animate="show">
+    <MovieList variants={fadeIn} initial="hidden" animate="visible">
       {/* <AnimateSharedLayout type="crossfade"> */}
-      <AnimatePresence>
+      <AnimatePresence exitBeforeEnter>
         {pathId && <MovieDetail pathId={pathId} />}
       </AnimatePresence>
       <div>

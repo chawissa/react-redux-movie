@@ -25,7 +25,7 @@ const Nav = () => {
     dispatch({ type: "CLEAR_SEARCHED" });
   };
   return (
-    <StyledNav variants={fadeIn} initial="hidden" animate="show">
+    <StyledNav variants={fadeIn} initial="hidden" animate="visible">
       <h1 onClick={clearSearched}>Movies</h1>
       <form className="search">
         <input value={textInput} onChange={handleInput} type="text" />
@@ -50,10 +50,10 @@ const StyledNav = styled(motion.nav)`
   }
   button {
     font-size: 1.5rem;
-    border: none;
     padding: 0.5rem 2rem;
     cursor: pointer;
     background: #ff7676;
+    border: none;
     color: white;
   }
 `;
