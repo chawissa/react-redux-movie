@@ -4,7 +4,7 @@ import Carousel from "./Carousel";
 // STYLING AND ANIMATION
 import styled from "styled-components";
 import { motion, AnimatePresence } from "framer-motion";
-import { Play } from "@styled-icons/boxicons-regular";
+import { Play, X } from "@styled-icons/boxicons-regular";
 import { popup } from "../animations";
 // REDUX
 import { useSelector } from "react-redux";
@@ -21,6 +21,10 @@ const MovieDetail = ({ pathId }) => {
       history.push("/");
     }
   };
+
+  const handleCloseDetail = () => {
+    history.push("/");
+  };
   // DATA
   const { movie, video, isLoading } = useSelector((state) => state.detail);
 
@@ -35,6 +39,7 @@ const MovieDetail = ({ pathId }) => {
             exit="hidden"
             key={pathId}
           >
+            <CloseDetail onClick={handleCloseDetail} />
             <DescriptionMovie>
               <Media>
                 <motion.img
@@ -127,9 +132,25 @@ const Detail = styled(motion.div)`
   overflow: hidden;
   z-index: 10;
   @media (max-width: 768px) {
-    padding: 1rem 1rem;
+    padding: 3rem;
     width: 90%;
     left: 5%;
+  }
+`;
+
+const CloseDetail = styled(X)`
+  position: absolute;
+  top: 0.9rem;
+  right: 0.9rem;
+  height: 3rem;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
+  @media (max-width: 768px) {
+    top: 0.5rem;
+    right: 0.5rem;
+    height: 2rem;
   }
 `;
 

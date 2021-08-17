@@ -31,6 +31,9 @@ const Carousel = () => {
 
   const responsive = {
     0: {
+      items: 2,
+    },
+    500: {
       items: 3,
     },
     800: {
@@ -73,14 +76,16 @@ const Buttons = styled(motion.div)`
 `;
 
 const SmallLeftArrowAlt = styled(LeftArrowAlt)`
-  height: 4rem;
+  height: 3rem;
   margin-right: 1.5rem;
   cursor: pointer;
+  color: #333;
 `;
 
 const SmallRightArrowAlt = styled(RightArrowAlt)`
-  height: 4rem;
+  height: 3rem;
   cursor: pointer;
+  color: #333;
 `;
 
 export default Carousel;
