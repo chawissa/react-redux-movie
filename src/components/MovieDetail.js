@@ -40,10 +40,9 @@ const MovieDetail = ({ pathId }) => {
             key={pathId}
           >
             <CloseDetail onClick={handleCloseDetail} />
-            <DescriptionMovie>
+            <div>
               <Media>
-                <motion.img
-                  layoutId={`image-${pathId}`}
+                <img
                   src={
                     movie.backdrop_path
                       ? `${img_780}/${movie.backdrop_path}`
@@ -55,10 +54,10 @@ const MovieDetail = ({ pathId }) => {
 
               <div>
                 <Title>
-                  <motion.h3 layoutId={`title-${pathId}`}>
+                  <h3>
                     {movie.title} (
                     {(movie.release_date || "-----").substring(0, 4)})
-                  </motion.h3>
+                  </h3>
                 </Title>
 
                 <Stats>
@@ -75,7 +74,6 @@ const MovieDetail = ({ pathId }) => {
                   {movie.runtime !== 0 && <p>{movie.runtime} minutes</p>}
                 </Stats>
 
-                {/* {movie.tagline && <i className="tagline">{movie.tagline}</i>} */}
                 <p style={{ fontStyle: "italic" }}>{movie.tagline}</p>
                 <Overview>
                   <h3>Overview</h3>
@@ -91,7 +89,7 @@ const MovieDetail = ({ pathId }) => {
                   Watch the trailer
                 </Button>
               </div>
-            </DescriptionMovie>
+            </div>
 
             <Carousel />
           </Detail>
@@ -155,8 +153,6 @@ const CloseDetail = styled(X)`
     height: 2rem;
   }
 `;
-
-const DescriptionMovie = styled(motion.div)``;
 
 const Media = styled(motion.div)`
   img {

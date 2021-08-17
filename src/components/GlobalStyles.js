@@ -32,11 +32,10 @@ const GlobalStyles = createGlobalStyle`
         }
     }
     h3 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         color: #333;
-        padding: .5rem 0;
         @media(max-width: 540px) {
-            font-size: 1rem
+            font-size: 0.9rem
         }
     }
     p {

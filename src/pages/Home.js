@@ -9,7 +9,7 @@ import Movie from "../components/Movie";
 import MovieDetail from "../components/MovieDetail";
 // STYLING AND ANIMATION
 import styled from "styled-components";
-import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { fadeIn } from "../animations";
 
 const Home = () => {
@@ -42,7 +42,6 @@ const Home = () => {
 
   return (
     <MovieList variants={fadeIn} initial="hidden" animate="visible">
-      {/* <AnimateSharedLayout type="crossfade"> */}
       <AnimatePresence exitBeforeEnter>
         {pathId && <MovieDetail pathId={pathId} />}
       </AnimatePresence>
@@ -90,7 +89,6 @@ const Home = () => {
           />
         ))}
       </Movies>
-      {/* </AnimateSharedLayout> */}
 
       <h2>Popular</h2>
       <Movies>
@@ -118,7 +116,7 @@ const MovieList = styled(motion.div)`
 const Movies = styled(motion.div)`
   min-height: 80vh;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-column-gap: 3rem;
   grid-row-gap: 5rem;
   padding-bottom: 3rem;

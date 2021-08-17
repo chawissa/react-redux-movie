@@ -3,14 +3,12 @@ import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { img_300, unavailable } from "../config/config";
-import { popup } from "../animations";
 // REDUX
 import { useDispatch } from "react-redux";
 import { loadDetail } from "../actions/detailAction";
 import { Link } from "react-router-dom";
 
 const Movie = ({ name, released, poster, id }) => {
-  const stringPathId = id.toString();
   // LOAD DETAIL HANDLER
   const dispatch = useDispatch();
   const handleLoadDetail = () => {
@@ -19,14 +17,10 @@ const Movie = ({ name, released, poster, id }) => {
   };
 
   return (
-    <StyledMovie layoutId={stringPathId} onClick={handleLoadDetail}>
+    <StyledMovie onClick={handleLoadDetail}>
       <Link to={`/movie/${id}`}>
-        <motion.img
-          layoutId={`image-${stringPathId}`}
-          alt={name}
-          src={poster ? `${img_300}/${poster}` : unavailable}
-        />
-        <motion.h3 layoutId={`title-${stringPathId}`}>{name}</motion.h3>
+        <img alt={name} src={poster ? `${img_300}/${poster}` : unavailable} />
+        <h3 style={{ padding: ".5rem 0.5rem" }}>{name}</h3>
         <p>{released}</p>
       </Link>
     </StyledMovie>

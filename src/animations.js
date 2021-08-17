@@ -15,7 +15,7 @@ export const popup = {
     opacity: 0,
     y: "+100vh",
     transition: {
-      duration: 0.25,
+      duration: 0.35,
     },
   },
   visible: {
