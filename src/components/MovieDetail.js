@@ -48,7 +48,7 @@ const MovieDetail = ({ pathId }) => {
                 />
               </Media>
 
-              <Info>
+              <div>
                 <Title>
                   <motion.h3 layoutId={`title-${pathId}`}>
                     {movie.title} (
@@ -57,11 +57,11 @@ const MovieDetail = ({ pathId }) => {
                 </Title>
 
                 <Stats>
-                  <div className="rating">
+                  <Rating>
                     {movie.vote_average !== 0 && (
                       <p> Rating: {movie.vote_average}</p>
                     )}
-                  </div>
+                  </Rating>
                   <Genres>
                     {movie.genres.map((genre) => (
                       <p key={genre.id}>{genre.name}</p>
@@ -83,7 +83,7 @@ const MovieDetail = ({ pathId }) => {
                   <SmallPlay />
                   Watch the trailer
                 </Button>
-              </Info>
+              </div>
             </DescriptionMovie>
 
             <Carousel />
@@ -140,8 +140,6 @@ const Media = styled(motion.div)`
   }
 `;
 
-const Info = styled(motion.div)``;
-
 const Title = styled(motion.div)`
   h3 {
     font-size: 2.5rem;
@@ -158,7 +156,6 @@ const Stats = styled(motion.div)`
   display: flex;
   align-items: flex-start;
   padding-bottom: 1rem;
-  object-fit: contain;
 
   @media (max-width: 780px) {
     display: inline;
@@ -166,8 +163,13 @@ const Stats = styled(motion.div)`
   }
 `;
 
+const Rating = styled(motion.div)`
+  padding-right: 1.5rem;
+`;
+
 const Genres = styled(motion.div)`
   display: flex;
+  padding-right: 1.5rem;
 
   p {
     padding: 0 0.3rem;
@@ -188,14 +190,18 @@ const Overview = styled(motion.div)`
 const Button = styled(motion.a)`
   display: inline-block;
   border-radius: 3px;
-  padding: 0.5rem 2rem;
+  padding: 0.3rem 2rem;
   margin: 1rem 0;
   text-align: center;
   background: #ff7676;
   color: white;
   border: none;
   cursor: pointer;
-  font-size: 1.3rem;
+  font-size: 1rem;
+
+  @media (max-width: 540px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const SmallPlay = styled(Play)`

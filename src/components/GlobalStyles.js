@@ -44,7 +44,7 @@ const GlobalStyles = createGlobalStyle`
         line-height: 200%;
         color: #696969;
         @media (max-width: 1040px) {
-            font-size: .8rem;
+            font-size: .9rem;
         }
     }
     a {
