@@ -38,9 +38,10 @@ const Nav = () => {
 };
 
 const StyledNav = styled(motion.nav)`
-  padding: 3rem 5rem;
+  padding: 3rem 0rem;
   text-align: center;
-  margin: 5rem;
+  background: red;
+
   input {
     width: 30%;
     font-size: 1.5rem;
@@ -56,6 +57,17 @@ const StyledNav = styled(motion.nav)`
     background: #ff7676;
     border: none;
     color: white;
+  }
+  @media (max-width: 768px) {
+    padding: 2rem 0.5rem;
+    margin: 0;
+    input {
+      width: 50%;
+      font-size: 1rem;
+    }
+    button {
+      font-size: 1rem;
+    }
   }
 `;
 export default Nav;

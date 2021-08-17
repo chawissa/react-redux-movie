@@ -76,7 +76,7 @@ const MovieDetail = ({ pathId }) => {
                 </Stats>
 
                 {/* {movie.tagline && <i className="tagline">{movie.tagline}</i>} */}
-                <i className="tagline">{movie.tagline}</i>
+                <p style={{ fontStyle: "italic" }}>{movie.tagline}</p>
                 <Overview>
                   <h3>Overview</h3>
                   <p>{movie.overview}</p>
@@ -132,7 +132,7 @@ const Detail = styled(motion.div)`
   overflow: hidden;
   z-index: 10;
   @media (max-width: 768px) {
-    padding: 3rem;
+    padding: 3rem 2rem;
     width: 90%;
     left: 5%;
   }
