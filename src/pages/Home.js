@@ -116,7 +116,7 @@ const MovieList = styled(motion.div)`
 const Movies = styled(motion.div)`
   min-height: 80vh;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   grid-column-gap: 3rem;
   grid-row-gap: 5rem;
   padding-bottom: 3rem;

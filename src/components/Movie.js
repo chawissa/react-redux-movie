@@ -35,7 +35,7 @@ const StyledMovie = styled(motion.div)`
   cursor: pointer;
   img {
     width: 100%;
-    height: 40vh;
+    min-height: 40vh;
     border-radius: 1rem 1rem 0rem 0rem;
   }
 `;
