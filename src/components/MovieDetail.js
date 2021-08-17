@@ -57,14 +57,14 @@ const MovieDetail = ({ pathId }) => {
                 </Title>
 
                 <Stats>
-                  <Rating>
-                    {movie.vote_average !== 0 && (
-                      <p> Rating: {movie.vote_average}</p>
-                    )}
-                  </Rating>
+                  {movie.vote_average !== 0 && (
+                    <Rating>
+                      <p>Rating: {movie.vote_average}</p>
+                    </Rating>
+                  )}
                   <Genres>
                     {movie.genres.map((genre) => (
-                      <p key={genre.id}>{genre.name}</p>
+                      <p key={genre.id}>{genre.name} </p>
                     ))}
                   </Genres>
                   {movie.runtime !== 0 && <p>{movie.runtime} minutes</p>}
@@ -126,8 +126,10 @@ const Detail = styled(motion.div)`
   color: black;
   overflow: hidden;
   z-index: 10;
-  @media (max-width: 900px) {
-    padding: 2rem 2rem;
+  @media (max-width: 768px) {
+    padding: 1rem 1rem;
+    width: 90%;
+    left: 5%;
   }
 `;
 
@@ -136,7 +138,7 @@ const DescriptionMovie = styled(motion.div)``;
 const Media = styled(motion.div)`
   img {
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
   }
 `;
 
@@ -145,7 +147,7 @@ const Title = styled(motion.div)`
     font-size: 2.5rem;
   }
 
-  @media (max-width: 540px) {
+  @media (max-width: 768px) {
     h3 {
       font-size: 1.5rem;
     }
@@ -155,11 +157,11 @@ const Title = styled(motion.div)`
 const Stats = styled(motion.div)`
   display: flex;
   align-items: flex-start;
+  flex-wrap: wrap;
   padding-bottom: 1rem;
+  width: 100%;
 
   @media (max-width: 780px) {
-    display: inline;
-    padding-bottom: 2rem;
   }
 `;
 
@@ -169,17 +171,11 @@ const Rating = styled(motion.div)`
 
 const Genres = styled(motion.div)`
   display: flex;
+
   padding-right: 1.5rem;
 
-  p {
-    padding: 0 0.3rem;
-  }
-
-  @media (max-width: 540px) {
-    flex-direction: column;
-    p {
-      padding: 0;
-    }
+  p:not(:last-of-type) {
+    padding-right: 0.5rem;
   }
 `;
 
@@ -190,7 +186,7 @@ const Overview = styled(motion.div)`
 const Button = styled(motion.a)`
   display: inline-block;
   border-radius: 3px;
-  padding: 0.3rem 2rem;
+  padding: 0.3rem 2.3rem 0.3rem 2rem;
   margin: 1rem 0;
   text-align: center;
   background: #ff7676;
