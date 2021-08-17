@@ -5,7 +5,7 @@ import Carousel from "./Carousel";
 import styled from "styled-components";
 import { motion, AnimatePresence } from "framer-motion";
 import { Play, X } from "@styled-icons/boxicons-regular";
-import { popup } from "../animations";
+import { popup, hover } from "../animations";
 // REDUX
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
@@ -84,6 +84,8 @@ const MovieDetail = ({ pathId }) => {
                 <Button
                   target="_blank"
                   href={`https://www.youtube.com/watch?v=${video.results[0]?.key}`}
+                  variants={hover}
+                  whileHover="hover"
                 >
                   <SmallPlay />
                   Watch the trailer

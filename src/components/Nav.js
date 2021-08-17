@@ -48,7 +48,10 @@ const StyledNav = styled(motion.nav)`
     padding: 0.5rem;
     border: none;
     margin-top: 1rem;
+    -webkit-appearance: none;
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
   }
   button {
     font-size: 1.5rem;
