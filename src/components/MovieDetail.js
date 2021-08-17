@@ -3,7 +3,7 @@ import { img_780, unavailableLandscape } from "../config/config";
 import Carousel from "./Carousel";
 // STYLING AND ANIMATION
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Play } from "@styled-icons/boxicons-regular";
 import { popup } from "../animations";
 // REDUX
