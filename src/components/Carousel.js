@@ -50,7 +50,7 @@ const Carousel = () => {
       mouseTracking
       items={items}
       // autoPlay={true}
-      disableDotsControls
+      // disableDotsControls
       disableButtonsControls
       activeIndex={activeIndex}
       onSlideChange={syncActiveIndex}
