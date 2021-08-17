@@ -192,7 +192,7 @@ const Rating = styled(motion.div)`
 
 const Genres = styled(motion.div)`
   display: flex;
-
+  flex-wrap: wrap;
   padding-right: 1.5rem;
 
   p:not(:last-of-type) {
@@ -217,12 +217,17 @@ const Button = styled(motion.a)`
   font-size: 1rem;
 
   @media (max-width: 540px) {
+    display: block;
     font-size: 0.9rem;
+    margin: 1rem auto;
   }
 `;
 
 const SmallPlay = styled(Play)`
   height: 3rem;
+  @media (max-width: 768px) {
+    height: 2rem;
+  }
 `;
 
 export default MovieDetail;
