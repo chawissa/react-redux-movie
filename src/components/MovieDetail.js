@@ -33,7 +33,7 @@ const MovieDetail = ({ pathId }) => {
             initial="hidden"
             animate="visible"
             exit="hidden"
-            layoutId={pathId}
+            key={pathId}
           >
             <DescriptionMovie>
               <Media>
